@@ -1,0 +1,29 @@
+{
+    "name": "language-translation-app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/app",
+        "nodemon": "nodemon src/app",
+        "styles": "npx tailwindcss -i ./src/assets/input.css -o ./public/output.css",
+        "styles-watch": "npx tailwindcss -i ./src/assets/input.css -o ./public/output.css --watch",
+        "dev": "concurrently --kill-others \"npm run styles-watch\" \"npm run nodemon\""
+    },
+    "keywords": [],
+    "author": "AjayiMike",
+    "license": "ISC",
+    "dependencies": {
+        "@vitalets/google-translate-api": "^9.2.0",
+        "body-parser": "^1.20.2",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.16",
+        "concurrently": "^8.2.1",
+        "nodemon": "^3.0.1",
+        "postcss": "^8.4.31",
+        "tailwindcss": "^3.3.3"
+    }
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LingoLink</title>
+
+        <!-- font-awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- css -->
+        <link rel="stylesheet" href="/output.css" />
+    </head>
+    <body class="">
+        <section id="Welcome" class="bg-white">
+            <div class="relative isolate lg:px-8">
+                <!-- <div
+                    class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+                    aria-hidden="true"
+                >
+                    <div
+                        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                        style="
+                            clip-path: polygon(
+                                74.1% 44.1%,
+                                100% 61.6%,
+                                97.5% 26.9%,
+                                85.5% 0.1%,
+                                80.7% 2%,
+                                72.5% 32.5%,
+                                60.2% 62.4%,
+                                52.4% 68.1%,
+                                47.5% 58.3%,
+                                45.2% 34.5%,
+                                27.5% 76.7%,
+                                0.1% 64.9%,
+                                17.9% 100%,
+                                27.6% 76.8%,
+                                76.1% 97.7%,
+                                74.1% 44.1%
+                            );
+                        "
+                    ></div>
+                </div> -->
+                <div class="mx-auto py-10">
+                    <div class="text-center">
+                        <h1
+                            class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                        >
+                            Welcome To LingoLink!
+                        </h1>
+                        <p
+                            class="mt-6 text-lg leading-8 text-gray-600 mx-auto lg:w-[45rem]"
+                        >
+                            What do you need help in translating today. Kindly
+                            note that this web page is just for
+                            cross-translation between Yoruba, Hausa & Igbo
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Translate -->
+        <form action="/" method="POST">
+            <div
+                class="mt-5 flex flex-row gap-5 w-full justify-center items-center"
+            >
+                <div class="relative">
+                    <select
+                        name="fromLang"
+                        id="from-text"
+                        class="inline-flex justify-evenly gap-x-1.5 rounded-md bg-white px-3 py-2 m-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset hover:ring-gray-300 hover:bg-blue-50"
+                        id="menu-button"
+                        aria-expanded="true"
+                        aria-haspopup="true"
+                    >
+                        <option value="en" selected>English</option>
+                        <option value="yo">Yoruba</option>
+                        <option value="ig">Igbo</option>
+                        <option value="ha">Hausa</option>
+                    </select>
+                </div>
+
+                <div id="transalte-icon">
+                    <i
+                        class="fa-solid fa-arrow-right-arrow-left mx-auto"
+                        style="color: #919aac"
+                    ></i>
+                </div>
+
+                <div class="relative">
+                    <select
+                        name="toLang"
+                        id="from-text"
+                        class="inline-flex justify-evenly gap-x-1.5 rounded-md bg-white px-3 py-2 m-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset hover:ring-gray-300 hover:bg-blue-50"
+                        id="menu-button"
+                        aria-expanded="true"
+                        aria-haspopup="true"
+                    >
+                        <option value="en">English</option>
+                        <option value="yo" selected>Yoruba</option>
+                        <option value="ig">Igbo</option>
+                        <option value="ha">Hausa</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- translate-button -->
+            <div class="mx-auto text-center font-semibold text-white mt-2">
+                <button
+                    type="submit"
+                    class="w-[10rem] rounded-lg p-2 bg-gradient-to-r from-[#ff80b5] to-[#9089fc] hover:bg-blue-50"
+                >
+                    Translate
+                </button>
+            </div>
+
+            <!-- cards -->
+            <% if (translation) { %>
+            <section id="cards" class="container mx-auto">
+                <div
+                    class="grid lg:grid-cols-2 items-center p-3 gap-10 mt-2 mb-5"
+                >
+                    <div
+                        class="bg-gradient-to-r from-[#ff80b5] to-[#9089fc] rounded-lg p-[2px] w-full h-[22rem]"
+                    >
+                        <label
+                            for="from-input"
+                            class="p-4 text-xl font-semibold"
+                        >From</label>
+                        <textarea
+                            class="resize-none placeholder:italic placeholder:text-slate-400 bg-white w-full h-[19.7rem] rounded-lg py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
+                            placeholder="Enter Text..."
+                            name="fromInput"
+                            id="from-input"
+                        ><%=translation.fromText %></textarea>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-r from-[#ff80b5] to-[#9089fc] rounded-lg p-[2px] mx-auto w-full h-[22rem]"
+                    >
+                        <label
+                            for="to-input"
+                            class="p-4 pb-8 text-xl font-semibold"
+                        >to</label>
+                        <textarea
+                            class="resize-none placeholder:italic font-bold placeholder:text-slate-400 block bg-white w-full h-[19.7rem] rounded-lg py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
+                            placeholder="Translation..."
+                            name="toInput"
+                            id="to-input"
+                            readonly
+                        ><%=translation.result %></textarea>
+                    </div>
+                </div>
+            </section>
+            <%} else { %>
+            <section id="cards" class="container mx-auto">
+                <div
+                    class="grid lg:grid-cols-2 items-center p-3 gap-10 mt-2 mb-5"
+                >
+                    <div
+                        class="bg-gradient-to-r from-[#ff80b5] to-[#9089fc] rounded-lg p-[2px] w-full h-[22rem]"
+                    >
+                        <label
+                            for="from-input"
+                            class="p-4 text-xl font-semibold"
+                        >
+                        From
+                        </lable>
+                        <textarea
+                            class="resize-none placeholder:italic placeholder:text-slate-400 bg-white w-full h-[19.7rem] rounded-lg py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
+                            placeholder="Enter Text..."
+                            name="fromInput"
+                            id="from-input"
+                        ></textarea>
+                    </div>
+
+                    <div
+                        class="bg-gradient-to-r from-[#ff80b5] to-[#9089fc] rounded-lg p-[2px] mx-auto w-full h-[22rem]"
+                    >
+                        <label
+                            for="to-input"
+                            class="p-4 pb-8 text-xl font-semibold"
+                        >To</label>
+                        <textarea
+                            class="resize-none placeholder:italic font-bold placeholder:text-slate-400 block bg-white w-full h-[19.7rem] rounded-lg py-2 px-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-lg"
+                            placeholder="Translation..."
+                            name="toInput"
+                            id="to-input"
+                            readonly
+                        ></textarea>
+                    </div>
+                </div>
+            </section>
+            <% } %>
+            <!-- cards end -->
+        </form>
+    </body>
+</html>
